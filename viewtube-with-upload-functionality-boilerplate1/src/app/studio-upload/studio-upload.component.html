@@ -1,18 +1,24 @@
+<div>
+    <mat-sidenav-container class="container">
+        <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+        <mat-sidenav-content>Upoad Video</mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
 <div id='content'>
     <h2>Enter Video Upload Details</h2>
-    <mat-sidenav-container class="example-container" >
-        <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-        <mat-sidenav-content>Main content</mat-sidenav-content>
-      </mat-sidenav-container>
-    <form>
+
+    <form #vtForm="ngForm">
         <mat-form-field>
             <mat-label>URL</mat-label>
-            <input matInput>
+            <input matInput #url='ngModel' name="url" id="url" [class.is-invalid]='url.invalid && url.touched'
+                [class.is-valid]='url.valid && url.touched' ngModel>
         </mat-form-field>
         <br>
         <mat-form-field>
             <mat-label>Title</mat-label>
-            <input matInput>
+            <input matInput #title='ngModel' name=" title" id="title"
+                [class.is-invalid]='title.invalid && title.touched' [class.is-valid]='title.valid && title.touched'
+                maxlength="120" ngModel required>
         </mat-form-field>
         <br>
         <mat-form-field>
@@ -22,7 +28,9 @@
         <br>
         <mat-form-field>
             <mat-label>Duration(*)</mat-label>
-            <input matInput>
+            <input matInput #duration='ngModel' name="duration" id="duration"
+                [class.is-invalid]='duration.invalid && duration.touched'
+                [class.is-valid]='duration.valid && duration.touched' ngModel required pattern="[0-5][0-9]:[0-5][0-9]">
         </mat-form-field>
         <br>
         <mat-form-field>
@@ -106,7 +114,7 @@
                 <mat-radio-button value="2">public</mat-radio-button>
             </mat-radio-group>
         </div>
-        <button mat-raised-button color="primary" ng-click="showActionToast()">Show With Action</button>
+        <button mat-raised-button color="primary" type="submit" ng-click="showActionToast()">Show With Action</button>
 
     </form>
 
