@@ -1,5 +1,9 @@
 <div id='content'>
     <h2>Enter Video Upload Details</h2>
+    <mat-sidenav-container class="example-container" >
+        <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+        <mat-sidenav-content>Main content</mat-sidenav-content>
+      </mat-sidenav-container>
     <form>
         <mat-form-field>
             <mat-label>URL</mat-label>
@@ -50,18 +54,59 @@
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+        </mat-form-field>
         <br>
         Video Location
         <mat-form-field appearance="fill">
             <mat-label>Choose Location</mat-label>
             <mat-select>
-              <mat-option *ngFor="let location of locations" [value]="location">
-                {{location}}
-              </mat-option>
+                <mat-option *ngFor="let location of locations" [value]="location">
+                    {{location}}
+                </mat-option>
             </mat-select>
-          </mat-form-field>
-   
+        </mat-form-field>
+
+
+        License
+        <mat-form-field appearance="fill">
+            <mat-label>Choose License</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let license of licenses" [value]="license">
+                    {{license}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <br>
+        Distribution
+        <mat-form-field appearance="fill">
+            <mat-label>Choose Distribution</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let distribution of distributions" [value]="distribution">
+                    {{distribution}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        Video Category
+        <mat-form-field appearance="fill">
+            <mat-label>Choose Video Category</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let category of VideoCategories" [value]="category">
+                    {{category}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <br>
+        <div>
+            Visibility(*) : &nbsp;
+            <mat-radio-group aria-label="Visibility">
+                <mat-radio-button value="1">private</mat-radio-button> &nbsp;
+                <mat-radio-button value="2">public</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <button mat-raised-button color="primary" ng-click="showActionToast()">Show With Action</button>
 
     </form>
 
